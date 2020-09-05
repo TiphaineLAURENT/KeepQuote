@@ -5,13 +5,15 @@ const i18nextBackend = require("i18next-node-fs-backend");
 const config = require("./app.config");
 
 const i18nextOptions = {
-    debug: false,
+    debug: true,
+    defaultNS: config.namespace,
+    ns: config.namespace,
     backend: {
         // path where resources get loaded from
-        loadPath: "./src/locales/{{lng}}/{{ns}}.json",
+        loadPath: "./src/{{ns}}/{{lng}}.json",
 
         // path to post missing resources
-        addPath: "./src/locales/{{lng}}/{{ns}}.missing.json",
+        addPath: "./src/{{ns}}/{{lng}}.missing.json",
 
         // jsonIndent to use when storing json files
         jsonIndent: 4,

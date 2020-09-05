@@ -6,38 +6,38 @@ module.exports = (app, mainWindow, i18n) => {
     const menu = [{
             label: i18n.t("File"),
             submenu: [
-                { role: "quit" }
+                { label: i18n.t("Quit"), role: "quit" }
             ]
         },
         {
             label: i18n.t("Edit"),
             submenu: [
-                { role: "undo" },
-                { role: "redo" },
+                { label: i18n.t("Undo"), role: "undo" },
+                { label: i18n.t("Redo"), role: "redo" },
                 { type: "separator" },
-                { role: "cut" },
-                { role: "copy" },
-                { role: "paste" }
+                { label: i18n.t("Cut"), role: "cut" },
+                { label: i18n.t("Copy"), role: "copy" },
+                { label: i18n.t("Paste"), role: "paste" }
             ]
         },
         {
             label: i18n.t("View"),
             submenu: [
-                { role: "toggledevtools" },
+                { label: i18n.t("Toggle Developer Tools"), role: "toggledevtools" },
                 { type: "separator" },
-                { role: "resetzoom" },
-                { role: "zoomin" },
-                { role: "zoomout" },
+                { label: i18n.t("Reset Zoom"), role: "resetzoom" },
+                { label: i18n.t("Zoom In"), role: "zoomin" },
+                { label: i18n.t("Zoom Out"), role: "zoomout" },
                 { type: "separator" },
-                { role: "togglefullscreen" }
+                { label: i18n.t("Toggle Fullscreen"), role: "togglefullscreen" }
             ]
         },
         {
             label: i18n.t("Window"),
             submenu: [
                 { label: i18n.t("Minimize"), role: "minimize" },
-                { role: "zoom" },
-                { role: "close" }
+                { label: i18n.t("Zoom"), role: "zoom" },
+                { label: i18n.t("Close"), role: "close" }
             ]
         },
         {

@@ -74,10 +74,10 @@ app.on("second-instance", () => {
 });
 
 ipcMain.on("get-initial-translations", (event, arg) => {
-    i18n.loadLanguages(config.fallbackLng, (err, t) => {
+    i18n.loadLanguages("fr", (err, t) => {
         const initial = {
             "fr": {
-                "translation": i18n.getResourceBundle(config.fallbackLng, config.namespace)
+                "locales": i18n.getResourceBundle("fr", config.namespace)
             }
         };
         event.returnValue = initial;

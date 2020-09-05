@@ -31,5 +31,6 @@
     "bugs": {
         "url": "https://github.com/TiphaineLAURENT/KeepQuote/issues"
     },
-    "homepage": "https://github.com/TiphaineLAURENT/KeepQuote#readme"
+    "homepage": "https://github.com/TiphaineLAURENT/KeepQuote#readme",
+    "asar": true
 }

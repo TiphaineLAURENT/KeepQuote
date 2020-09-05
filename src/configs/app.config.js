@@ -6,5 +6,5 @@ module.exports = {
     title: "KeepQuote",
     languages: ["fr", "en"],
     fallbackLng: "fr",
-    namespace: "translation"
+    namespace: "locales"
 };
