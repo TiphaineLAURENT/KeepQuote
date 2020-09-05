@@ -1,5 +1,6 @@
 //@ts-check
 'use strict';
+
 const { dialog } = require('electron').remote;
 const { createReport } = require("docx-templates");
 const fs = require("fs");
