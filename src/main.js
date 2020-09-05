@@ -1,5 +1,8 @@
 "use strict";
 
+const unhandled = require('electron-unhandled');
+unhandled();
+
 const { app, BrowserWindow, Menu, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
