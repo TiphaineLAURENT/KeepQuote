@@ -5,7 +5,7 @@ const i18nextBackend = require("i18next-node-fs-backend");
 const config = require("./app.config");
 
 const i18nextOptions = {
-    debug: true,
+    debug: false,
     backend: {
         // path where resources get loaded from
         loadPath: "./src/locales/{{lng}}/{{ns}}.json",

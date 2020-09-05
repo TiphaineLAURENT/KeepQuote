@@ -164,4 +164,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#Packaged app
+KeepQuote*/
+
+src/quote.docx
+
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,windows,linux
