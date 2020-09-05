@@ -9,36 +9,21 @@
     <link href="./resources/bulma-0.9.0/css/bulma.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="container">
+    <div class="field">
+        <label for="" class="label">Template</label>
+        <div class="control">
+            <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="input" name="template">
+        </div>
+    </div>
     <form action="" id="quoteForm">
-        <div class="field">
-            <label for="" class="label">Template</label>
-            <div class="control">
-                <input type="file" class="input" name="template">
-            </div>
-        </div>
-        <div class="field">
-            <label for="" class="label">Name</label>
-            <div class="control">
-                <input type="text" class="input">
-            </div>
-        </div>
-        <div class="field">
-            <label for="" class="label">Date</label>
-            <div class="control">
-                <input type="text" class="input">
-            </div>
-        </div>
-        <div class="field">
-            <label for="" class="label">dza</label>
-            <div class="control">
-                <input type="text" class="input">
-            </div>
-        </div>
-        <input class="button" id="submitQuote" type="submit">
+        <div id="fields"></div>
+        <input class="button" type="submit">
     </form>
+    <button class="button" id="clear">Clear</button>
 
-    <script src="quote_creation/creation.js"></script>
+    <script src="quote_creation/fill.ts"></script>
+    <script src="quote_creation/creation.ts"></script>
 </body>
 
 </html>

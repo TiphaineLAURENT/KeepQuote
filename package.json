@@ -2,11 +2,12 @@
     "name": "keepquote",
     "version": "1.0.0",
     "description": "A desktop application to help creating quotation",
-    "main": "src/main.js",
+    "main": "src/main.ts",
     "dependencies": {
         "docx-templates": "^4.4.0",
         "electron": "^10.1.1",
-        "glob": "^7.1.6"
+        "glob": "^7.1.6",
+        "xlsx": "^0.16.6"
     },
     "devDependencies": {},
     "scripts": {
