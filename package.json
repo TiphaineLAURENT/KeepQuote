@@ -1,0 +1,29 @@
+{
+    "name": "keepquote",
+    "version": "1.0.0",
+    "description": "A desktop application to help creating quotation",
+    "main": "src/main.js",
+    "dependencies": {
+        "docx-templates": "^4.4.0",
+        "electron": "^10.1.1",
+        "glob": "^7.1.6"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TiphaineLAURENT/KeepQuote.git"
+    },
+    "keywords": [
+        "quote"
+    ],
+    "author": "Tiphaine LAURENT",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/TiphaineLAURENT/KeepQuote/issues"
+    },
+    "homepage": "https://github.com/TiphaineLAURENT/KeepQuote#readme"
+}
