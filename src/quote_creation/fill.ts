@@ -46,14 +46,19 @@ templateInput.addEventListener("change", async(event) => {
             input.classList.add("button");
             input.type = "text";
             input.name = name;
-            if (name === "current_date") {
+            switch (name) {
+            case "current_date":
                 const current_date = new Date();
                 input.value = current_date.toLocaleDateString();
-            } else if (name === "validity_date") {
+                break;
+            case "validity_date":
                 const validity_date = new Date();
                 validity_date.setMonth(validity_date.getMonth() + 1);
                 input.value = validity_date.toLocaleDateString();
-            }
+                break;
+            case "quote_number":
+                input.value = `DE${Date.now()}`;
+            } 
             control.append(input);
         } else if (command.type === "FOR") {
             const input = document.createElement("input")
