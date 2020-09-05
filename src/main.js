@@ -28,7 +28,8 @@ function createWindow() {
         height: 800,
         title: app.getName(),
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     });
 
