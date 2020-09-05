@@ -8,6 +8,7 @@ const i18nextOptions = {
     debug: true,
     defaultNS: config.namespace,
     ns: config.namespace,
+    lng: config.fallbackLng,
     backend: {
         // path where resources get loaded from
         loadPath: "./src/{{ns}}/{{lng}}.json",

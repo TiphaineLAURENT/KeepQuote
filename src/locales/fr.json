@@ -20,5 +20,8 @@
     "Reset Zoom": "Remettre le zoom par default",
     "Zoom In": "Agrandir",
     "Zoom Out": "Réduire",
-    "Toggle Fullscreen": "Plein écran"
+    "Toggle Fullscreen": "Plein écran",
+    "Submit": "Générer",
+    "Clear": "Annuler",
+    "Template": "Modèle"
 }

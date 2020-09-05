@@ -7,5 +7,21 @@
     "fr": "fr",
     "en": "en",
     "Language": "Language",
-    "Minimize": "Minimize"
+    "Minimize": "Minimize",
+    "Zoom": "Zoom",
+    "Close": "Close",
+    "Toggle Developer Tools": "Toggle Developer Tools",
+    "Quit": "Quit",
+    "Undo": "Undo",
+    "Redo": "Redo",
+    "Cut": "Cut",
+    "Copy": "Copy",
+    "Paste": "Paste",
+    "Reset Zoom": "Reset Zoom",
+    "Zoom In": "Zoom In",
+    "Zoom Out": "Zoom Ou",
+    "Toggle Fullscreen": "Toggle Fullscreen",
+    "Submit": "Submit",
+    "Clear": "Clear",
+    "Template": "Template"
 }
