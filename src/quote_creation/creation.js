@@ -3,14 +3,14 @@
 const { dialog } = require('electron').remote;
 const createReport = require("docx-templates").default;
 const fs = require("fs");
-const path = require("path");
 
-const template = fs.readFileSync(path.join(__dirname, "resources/templates/devis.docx"));
-
-const submitButton = document.querySelector("#quoteForm");
-submitButton.addEventListener("submit", async(event) => {
+const form = document.querySelector("#quoteForm");
+form.addEventListener("submit", async(event) => {
     event.preventDefault();
-    console.log(event.target.elements);
+
+    const form_data = event.target.elements;
+
+    const template = form_data.template.files[0].arrayBuffer();
 
     const current_date = new Date();
     const validity_date = new Date();
