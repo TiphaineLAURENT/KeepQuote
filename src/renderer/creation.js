@@ -1,4 +1,3 @@
-//@ts-check
 'use strict';
 
 const { dialog } = require('electron').remote;
@@ -21,7 +20,7 @@ function readFileAsync(file) {
 }
 
 const form = document.querySelector("#quoteForm");
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", async(event) => {
     event.preventDefault();
     if (templateInput.files.length === 0) {
         return false;

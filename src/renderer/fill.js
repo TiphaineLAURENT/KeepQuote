@@ -1,11 +1,4 @@
-//@ts-check
 'use strict';
-
-String.prototype.title = function () {
-    return this.replaceAll("_", " ").replace(/\b\w+/g, function (s) {
-        return s.charAt(0).toUpperCase() + s.substr(1).toLowerCase();
-    });
-};
 
 const { listCommands } = require("docx-templates");
 const { ipcRenderer } = require("electron");
@@ -20,7 +13,7 @@ function updateFileLabel(input) {
 
 let template = null;
 const templateInput = document.querySelector("input[name='template']");
-templateInput.addEventListener("change", async (event) => {
+templateInput.addEventListener("change", async(event) => {
     if (templateInput.files.length === 0) {
         return false;
     }
@@ -95,7 +88,7 @@ templateInput.addEventListener("change", async (event) => {
 });
 
 const clearButton = document.querySelector("#clear");
-clearButton.addEventListener("click", async (event) => {
+clearButton.addEventListener("click", async(event) => {
     fields.textContent = "";
     templateInput.value = "";
 });
