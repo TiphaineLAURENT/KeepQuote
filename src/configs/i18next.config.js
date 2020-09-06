@@ -3,6 +3,11 @@
 const i18n = require("i18next");
 const i18nextBackend = require("i18next-node-fs-backend");
 const config = require("./app.config");
+const path = require("path");
+let { app } = require("electron");
+if (app === undefined) {
+    app = require("electron").remote.app;
+}
 
 const i18nextOptions = {
     debug: true,
@@ -11,10 +16,10 @@ const i18nextOptions = {
     lng: config.fallbackLng,
     backend: {
         // path where resources get loaded from
-        loadPath: "./src/{{ns}}/{{lng}}.json",
+        loadPath: path.join(app.getAppPath(), "/src/{{ns}}/{{lng}}.json"),
 
         // path to post missing resources
-        addPath: "./src/{{ns}}/{{lng}}.missing.json",
+        addPath: path.join(app.getAppPath(), "/src/{{ns}}/{{lng}}.missing.json"),
 
         // jsonIndent to use when storing json files
         jsonIndent: 4,
