@@ -9,7 +9,7 @@ A small desktop application to help create quotation.
 
 ## Usage
 
-![KeepQuote screenshot](keepquote.png)
+![KeepQuote screenshot](screenshot.png)
 
 * Choose a template to start creating your quote.
 You can learn how to write them at [docx-templates github wiki](https://github.com/guigrpa/docx-templates#supported-commands). The link is accessible in the Help section of the application.

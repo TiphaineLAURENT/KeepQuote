@@ -12,7 +12,7 @@ const menuFactoryService = require("./services/menuFactory");
 const i18n = require("./configs/i18next.config");
 const config = require("./configs/app.config");
 
-const iconPath = path.join(__dirname, "/assets/keepquote.png");
+const iconPath = path.join(app.getAppPath(), "/assets/keepquote.png");
 
 let mainWindow = null;
 
