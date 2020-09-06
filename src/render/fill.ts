@@ -79,7 +79,7 @@ templateInput.addEventListener("change", async (event) => {
                                         <i class="fas fa-upload"></i>
                                     </span>
                                     <span class="file-label">
-                                        ${i18n.t("Items")}
+                                        ${i18n.t("Excel")}
                                     </span>
                                 </span>
                                 <span class="file-name">
