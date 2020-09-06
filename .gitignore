@@ -167,6 +167,8 @@ $RECYCLE.BIN/
 #Packaged app
 KeepQuote*/
 keepquote-win32-x64/
+*.zip
+*.rar
 
 src/quote.docx
 
