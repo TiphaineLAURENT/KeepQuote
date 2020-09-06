@@ -13,9 +13,17 @@ const i18n = require("./configs/i18next.config");
 
 const fields = document.querySelector("#fields");
 
+function updateFileLabel(input) {
+    const label = input.parentNode.querySelector(".file-name");
+    label.textContent = input.value;
+}
+
 let template = null;
 const templateInput = document.querySelector("input[name='template']");
 templateInput.addEventListener("change", async (event) => {
+    if (templateInput.files.length === 0) {
+        return false;
+    }
     template = await templateInput.files[0].arrayBuffer();
     const commands = await listCommands(template, ['{', '}']);
 
@@ -62,12 +70,22 @@ templateInput.addEventListener("change", async (event) => {
             }
             control.append(input);
         } else if (command.type === "FOR") {
-            const input = document.createElement("input")
-            input.classList.add("button");
-            input.type = "file";
-            input.accept = ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
-            input.name = name;
-            control.append(input);
+            const div = document.createElement("div")
+            div.classList.add("file", "is-fullwidth", "is-info", "has-name"); // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+            div.innerHTML = `<label class="file-label">
+                                <input class="file-input" type="file" name="${name}" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="updateFileLabel(this);">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        ${i18n.t("Items")}
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                </span>
+                            </label>`;
+            control.append(div);
             forloop = true;
         }
 
@@ -82,13 +100,19 @@ clearButton.addEventListener("click", async (event) => {
     templateInput.value = "";
 });
 
+const templateLabel = document.querySelector("#templateLabel");
 const submitButton = document.querySelector("button[type='submit']");
 ipcRenderer.on("language-changed", (event, data) => {
     if (!i18n.hasResourceBundle(data.language, data.namespace)) {
         i18n.addResourceBundle(data.language, data.namespace, data.resource);
     }
     i18n.changeLanguage(data.language);
-    templateInput.parentNode.parentNode.firstElementChild.textContent = i18n.t("Template");
+    templateLabel.textContent = i18n.t("Template");
+    const itemsCta = document.querySelectorAll("input[type='file']:not([name='template']) ~ span.file-cta");
+    itemsCta.forEach(cta => {
+        const label = cta.querySelector(".file-label");
+        label.textContent = i18n.t("Items");
+    });
     submitButton.textContent = i18n.t("Submit");
     clearButton.textContent = i18n.t("Clear");
 });

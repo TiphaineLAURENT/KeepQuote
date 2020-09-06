@@ -23,6 +23,9 @@ function readFileAsync(file) {
 const form = document.querySelector("#quoteForm");
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (templateInput.files.length === 0) {
+        return false;
+    }
 
     const form_data = event.target.elements;
 

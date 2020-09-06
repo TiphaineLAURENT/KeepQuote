@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-background-light">
 
 <head>
     <meta charset="UTF-8">
@@ -7,21 +7,37 @@
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link href="./resources/bulma-0.9.0/css/bulma.css" rel="stylesheet" type="text/css">
+    <script defer src="./resources/fontawesome-free-5.14.0-web/js/all.js"></script>
 </head>
 
-<body class="container">
-    <div class="field">
-        <label for="" class="label">Template</label>
-        <div class="control">
-            <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="input" name="template">
+<body class="section">
+    <form action="" id="quoteForm" style="display: flex;">
+        <div class="lead" style="position: relative; overflow: hidden; flex-grow: 1; flex-shrink: 1; margin-left: -3rem; padding: 3rem;">
+            <div class="field">
+                <div class="file is-fullwidth is-warning has-name">
+                    <label class="file-label">
+                      <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file-input" name="template" onchange="updateFileLabel(this);">
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label" id="templateLabel">
+                        </span>
+                      </span>
+                      <span class="file-name">
+                      </span>
+                    </label>
+                </div>
+            </div>
+            <div id="fields"></div>
         </div>
-    </div>
-    <form action="" id="quoteForm">
-        <div id="fields"></div>
-        <div class="field is-horizontal">
-            <button class="button is-success" type="submit">Submit</button>
-            <button class="button is-danger" id="clear">Clear</button>
-        </div>
+
+        <aside class="aside" style="position: relative; flex: 0 0 calc(10.5rem + 1.5rem); padding: 3rem 0 3rem 1.5rem;">
+            <div class="field is-horizontal" style="position: fixed;">
+                <button class="button is-success" type="submit">Submit</button>
+                <button class="button is-danger" type="button" id="clear">Clear</button>
+            </div>
+        </aside>
     </form>
 
     <script src="render/fill.ts"></script>
