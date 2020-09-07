@@ -26,7 +26,8 @@ function createWindow() {
         title: config.title,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true
+            enableRemoteModule: true,
+            preload: path.join(__dirname, "renderer/preload.js")
         }
     });
 

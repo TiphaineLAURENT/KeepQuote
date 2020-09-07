@@ -7,7 +7,7 @@ const XLSX = require("xlsx");
 
 function readFileAsync(file) {
     return new Promise((resolve, reject) => {
-        let reader = new FileReader();
+        const reader = new FileReader();
 
         reader.onload = () => {
             resolve(reader.result);

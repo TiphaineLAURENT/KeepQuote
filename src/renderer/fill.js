@@ -12,13 +12,8 @@ function updateFileLabel(input) {
 }
 
 let template = null;
-const templateInput = document.querySelector("input[name='template']");
-templateInput.addEventListener("change", async(event) => {
-    if (templateInput.files.length === 0) {
-        return false;
-    }
-    template = await templateInput.files[0].arrayBuffer();
-    const commands = await listCommands(template, ['{', '}']);
+async function populateFromTemplateBuffer(buffer) {
+    const commands = await listCommands(buffer, ['{', '}']);
 
     fields.textContent = "";
     let forloop = false;
@@ -85,6 +80,20 @@ templateInput.addEventListener("change", async(event) => {
 
         fields.append(node);
     }
+}
+const templateInput = document.querySelector("input[name='template']");
+const templateFilename = document.querySelector("input[name='template'] ~ span.file-name");
+templateInput.addEventListener("change", async(event) => {
+    if (templateInput.files.length === 0) {
+        return false;
+    }
+    template = await templateInput.files[0].arrayBuffer();
+
+    const templatePath = templateInput.files[0].path;
+    localStorage.setItem("templatePath", templatePath);
+
+    await populateFromTemplateBuffer(template);
+    templateFilename.textContent = templatePath;
 });
 
 const clearButton = document.querySelector("#clear");
@@ -104,7 +113,7 @@ ipcRenderer.on("language-changed", (event, data) => {
     const itemsCta = document.querySelectorAll("input[type='file']:not([name='template']) ~ span.file-cta");
     itemsCta.forEach(cta => {
         const label = cta.querySelector(".file-label");
-        label.textContent = i18n.t("Items");
+        label.textContent = i18n.t("Excel");
     });
     submitButton.textContent = i18n.t("Submit");
     clearButton.textContent = i18n.t("Clear");
