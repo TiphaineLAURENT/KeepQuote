@@ -99,7 +99,10 @@ templateInput.addEventListener("change", async(event) => {
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", async(event) => {
     fields.textContent = "";
+    templateFilename.textContent = "";
     templateInput.value = "";
+    template = null;
+    localStorage.removeItem("templatePath");
 });
 
 const templateLabel = document.querySelector("#templateLabel");

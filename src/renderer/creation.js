@@ -22,7 +22,7 @@ function readFileAsync(file) {
 const form = document.querySelector("#quoteForm");
 form.addEventListener("submit", async(event) => {
     event.preventDefault();
-    if (templateInput.files.length === 0) {
+    if (template === null) {
         return false;
     }
 
@@ -30,10 +30,15 @@ form.addEventListener("submit", async(event) => {
 
     const data = {};
     for (const input of form_data) {
+        if (input.value === "") {
+            continue;
+        }
+
         if (input.type === "text") {
             data[input.name] = input.value;
         } else if (input.type === "file") {
             const array = new Uint8Array(await readFileAsync(input.files[0]));
+            console.log(array);
             const workbook = XLSX.read(array, { type: "array" });
             const [first_sheet] = Object.values(workbook.Sheets);
             data[input.name] = XLSX.utils.sheet_to_json(first_sheet);
