@@ -75,7 +75,7 @@ templateInput.addEventListener("change", async(event) => {
                                         ${i18n.t("Excel")}
                                     </span>
                                 </span>
-                                <span class="file-name">
+                                <span class="file-name has-background-white">
                                 </span>
                             </label>`;
             control.append(div);
