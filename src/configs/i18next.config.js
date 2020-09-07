@@ -10,7 +10,7 @@ if (app === undefined) {
 }
 
 const i18nextOptions = {
-    debug: true,
+    debug: false,
     defaultNS: config.namespace,
     ns: config.namespace,
     lng: config.fallbackLng,

@@ -37,8 +37,7 @@ form.addEventListener("submit", async(event) => {
         if (input.type === "text") {
             data[input.name] = input.value;
         } else if (input.type === "file") {
-            const array = new Uint8Array(await readFileAsync(input.files[0]));
-            console.log(array);
+            const array = await readFileAsync(input.files[0]);
             const workbook = XLSX.read(array, { type: "array" });
             const [first_sheet] = Object.values(workbook.Sheets);
             data[input.name] = XLSX.utils.sheet_to_json(first_sheet);
@@ -52,7 +51,7 @@ form.addEventListener("submit", async(event) => {
         failFast: true,
         rejectNullish: true,
         errorHandler: (err, command_code) => {
-            console.error(err, command_code);
+            console.error(err.name, command_code);
             return "";
         },
     });
